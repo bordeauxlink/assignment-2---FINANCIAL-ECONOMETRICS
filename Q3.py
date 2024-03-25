@@ -59,6 +59,9 @@ results = model.fit(3)
 # Compute impulse responses
 irf = results.irf(12)
 
-# Plot response of each variable to a shock in Zload
-irf.plot(response='Zonal_COMED_load_forecast')
-plt.show()
+# Plot response of Zload to a shock in each variable
+for var in ['Zonal_COMED_price', 'System_load_forecast', 'Zonal_COMED_load_forecast']:
+    irf.plot(impulse='Zonal_COMED_load_forecast', response=var)
+    plt.title(f'Response of Zload to a shock in {var}')
+    plt.figure(figsize=(10, 5))
+    plt.show()
