@@ -64,4 +64,5 @@ for var in ['Zonal_COMED_price', 'System_load_forecast', 'Zonal_COMED_load_forec
     irf.plot(impulse='Zonal_COMED_load_forecast', response=var)
     plt.title(f'Response of Zload to a shock in {var}')
     plt.figure(figsize=(10, 5))
+    plt.tight_layout()
     plt.show()
